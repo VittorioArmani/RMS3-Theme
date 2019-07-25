@@ -1,6 +1,5 @@
 <?php
 if (WEBSTUDIO != 'true') {
-    /*$components->default->categories_list(array('home' => true));*/
 }
 ?>
 <section class="well <?php if (WEBSTUDIO == 'true') {
