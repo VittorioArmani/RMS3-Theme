@@ -2,7 +2,6 @@
 ob_start();
 
 // Clean input
-
 $keyword = htmlspecialchars($_GET["keyword"]);
 $keyword = strip_tags($keyword);
 $keyword = urlencode($keyword);
@@ -11,12 +10,10 @@ $type = htmlspecialchars($_GET["type"]);
 $category = htmlspecialchars($_GET["category"]);
 
 // Save question, and the date to the FAQ log file for your FAQ search
-
 if (!isset($section)) { $section="buscarplantillas"; };
 
 $busqueda = $keyword;
 $question = $keyword;
-
 
 /* $date = date("d/m/Y");
 $time = date("H:i");
@@ -51,8 +48,6 @@ if (is_writable($filename)) {
 } */
 // translate and send query to search engine
 //https://www.googleapis.com/language/translate/v2?key=AIzaSyB88znhag1MZ4_yYLzvgDbjClw0Ky0wzIc&source=es&target=en&q=hola%20mundo
-
-
 
 $translator_base_url = 'https://www.googleapis.com/language/translate/v2?key=AIzaSyASbP8yAF9xuslzponyuG8suaRWvLMdPZ8&source=it&target=en';
 
@@ -89,5 +84,4 @@ $keyword = str_replace(" ","%20",$keyword);
     ob_clean();       //someone also mention the need to use this statement
     exit();
   }
-
 ?>

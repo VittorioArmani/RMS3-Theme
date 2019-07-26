@@ -37,7 +37,6 @@
     echo 'templates';
 } ?>">
     <div class="container">
-	
         <div class="row">
             <?php $components->default->templates($templates_params) ?>
             <div style="display: none; position: absolute;z-index:110;" id="preview_div"> </div>
