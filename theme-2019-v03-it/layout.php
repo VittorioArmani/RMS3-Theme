@@ -3,10 +3,7 @@ $components->default->init(array('page' => $page));
 ?>
 <!DOCTYPE html>
 <html lang="it">
-    <head>
-        <!-- <title><?php // echo $page->getHtmlTitle() ?></title> -->
-        <!-- <title><?php // echo $page->getHtmlTitle() . '&nbsp'; echo (META_TITLE) ? META_TITLE : "Template Shop Online"; ?> </title> -->
-        
+    <head>       
         <title><?php
         if ( WHERE_WE_NOW == 'preview' ) {
             $components->default->property();
