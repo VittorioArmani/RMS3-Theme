@@ -5,5 +5,5 @@
     <a href="https://rms3.templates.com/install"><img src="https://rms3.templates.com/va/Downloads.png" alt="Download"></a>
 </p>
 
-# Ready-Made Shop #
+# Ready-Made Shop (version 3) #
 Main theme for RMS3 project.
