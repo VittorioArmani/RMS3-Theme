@@ -29,6 +29,8 @@ The key characteristics of RMS are:
 
 ## Documentation
 
+You can find all our documentation docs [here](https://rms3.templates.com/install/Instructions/).
+
 ## License
 
 The Ready-Made Shop system is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
