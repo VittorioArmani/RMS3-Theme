@@ -31,4 +31,4 @@ The key characteristics of RMS are:
 
 ## License
 
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Ready-Made Shop system is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
