@@ -7,7 +7,7 @@
 
 # Ready-Made Shop by TemplateMonster.com #
 
-An affiliate sales tool from TemplateMonster.com that allows to sell absolutely all products from TemplateMonster.com marketplace as your own, and get 30-35% commission from each sale.
+An affiliate sales tool from TemplateMonster.com that allows to sell absolutely all products from [TemplateMonster.com](https://www.templatemonster.com) marketplace as your own, and get 30-35% commission from each sale.
 
 
 ## About RMS
