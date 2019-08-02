@@ -5,5 +5,6 @@
     <a href="https://rms3.templates.com/install"><img src="https://rms3.templates.com/va/Downloads.png" alt="Download"></a>
 </p>
 
-# Ready-Made Shop (version 3) #
-Main theme for RMS3 project.
+# About Ready-Made Shop #
+
+An affiliate sales tool from TemplateMonster.com that allows to sell absolutely all products from TemplateMonster.com marketplace as your own, and get 30-35% commission from each sale.
