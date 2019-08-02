@@ -11,3 +11,5 @@ An affiliate sales tool from TemplateMonster.com that allows to sell absolutely 
 
 
 ## About RMS
+
+The key characteristics of RMS are:
