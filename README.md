@@ -26,3 +26,9 @@ The key characteristics of RMS are:
 - RMS is lightweight and very fast
 - RMS is very customizable
 - RMS is undemanding hosting-wise, it can be installed even on shared hosting
+
+## Documentation
+
+## License
+
+The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
