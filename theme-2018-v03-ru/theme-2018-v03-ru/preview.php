@@ -1,0 +1,1 @@
+<?php $components->other->preview_topside(array('template' => $template, 'page_name'=>$page_name, 'page'=>@$page)) ?>
