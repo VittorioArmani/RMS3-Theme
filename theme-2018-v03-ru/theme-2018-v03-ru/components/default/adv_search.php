@@ -5,7 +5,7 @@
     <div class="container">
             <?php
             if (WEBSTUDIO == 'true') { ?>
-                <div class="col-lg-4 col-md-4 col-sm-12 pl_pr_5">
+                <div class="col-lg-5 col-md-5 col-sm-12 pl_pr_5">
                     <label for="search_by_category">Все Категории:</label>
                     <div class="select_wr">
                         <select id="search_by_category" name="category">
@@ -16,7 +16,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 pl_pr_5">
+                <div class="col-lg-5 col-md-5 col-sm-12 pl_pr_5">
                     <label for="search_by_type">Все Типы CMS:</label>
                     <div class="select_wr">
                         <select id="search_by_type" name="type">
@@ -27,14 +27,21 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-12 pl_pr_5">
+                <!--<div class="col-lg-4 col-md-3 col-sm-12 pl_pr_5">
                     <div class="">
-                      <label id="keywdLabel" for="search_by_keyword">Keyword:</label>
-                          <div id="search_by_keyword_wrapper">
-                            <input id="search_by_keyword" placeholder="Ключевое слово..." name="keyword" style="width:100% !important" type="text" value="<?php echo $_GET[busqueda]; ?>"/>
-                          </div>
-                    </div>
+                        <!--<div class="col-lg-6 col-md-6 col-sm-6">
+                            <label for="search_by_price">Price</label>
+                            <input type="text" id="search_by_price_from" name="price_from" value="<?php echo empty($post->price_from)?'':$post->price_from ?>" size="16">
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6"><span>to</span>
+                            <input type="text" id="search_by_price_to" name="price_to" value="<?php echo empty($post->price_to)?'':$post->price_to ?>" size="16">
+                        </div>
+                        <label id="keywdLabel" for="search_by_keyword">Keyword:</label>
+                <div id="search_by_keyword_wrapper">
+                        <input id="search_by_keyword" placeholder="Ключевое слово..." name="keyword" style="width:100% !important" type="text" value="<?php echo $_GET[busqueda]; ?>"/>
                 </div>
+                    </div>
+                </div>-->
                 <div class="col-lg-2 col-md-3 col-sm-12 pl_pr_5">
                     <button class="btn2" type="submit" name="submit" value="Search Template">Искать шаблон</button>
                 </div>
@@ -71,7 +78,7 @@
                         <label id="keywdLabel" for="search_by_keyword">Keyword:</label>
                 <div id="search_by_keyword_wrapper">
                         <input id="search_by_keyword" placeholder="Ключевое слово..." name="keyword" style="width:100% !important" type="text" value="<?php echo $_GET[busqueda]; ?>"/>
-                </div>
+    			</div>
                 </div>
 
 

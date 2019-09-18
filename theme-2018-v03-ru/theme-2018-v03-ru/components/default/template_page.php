@@ -1,4 +1,3 @@
-
 <?php
 /**
  * @var $template Theme_Template
@@ -73,18 +72,14 @@ if ($status != 200 ) {
       padding: 0 0 0 10px;
     }
   </style>
-
 </div>
 
-
 <style>
-/* Style the tab */
 .tab {
     overflow: hidden;
         background-color: #f1f1f1;
-	text-align: left;
+  text-align: left;
 }
-/* Style the buttons inside the tab */
 .tab button {
     background-color: inherit;
     float: left;
@@ -95,15 +90,12 @@ if ($status != 200 ) {
     transition: 0.3s;
     font-size: 17px;
 }
-/* Change background color of buttons on hover */
 .tab button:hover {
     background-color: #ddd;
 }
-/* Create an active/current tablink class */
 .tab button.active {
     background-color: #ccc;
 }
-/* Style the tab content */
 .tabcontent {
     display: none;
     padding: 6px 12px;
@@ -113,53 +105,52 @@ div.tab{
 margin-top:20px;
 }
 #open-features{
-margin-top:	30px;
+margin-top: 30px;
 color:#329DFF;
 cursor:pointer;
 }
 #table-mobile{
-	display:none;
-	margin-bottom:30px;
+  display:none;
+  margin-bottom:30px;
 }
 #table-desk{
-	margin-top:40px;
+  margin-top:40px;
 }
 @media only screen and (max-width:500px) {
 .features-list{
 display:none;
 }
-	#table-desk{
-	display:none;
-	}
-	#table-mobile{
-	display:block;	
+  #table-desk{
+  display:none;
+  }
+  #table-mobile{
+  display:block;  
 }
 }
 .single-property{
-	margin-top:20px;
+  margin-top:20px;
 }
 </style>
 <div class="tab">
    <div class="img_box">
    <?php
      $previewUrl = Moto_Tools::getTemplatePreviewUrl($template->getId());
-	 function url_exists($url) {
-		if(@file_get_contents($url,0,NULL,0,1))
-			{return 1;}
-		else
-			{ return 0;}
-	}
-		$url_image_http = 'http:' . $url_image;
-		$url_image_help = 'https://scr.template-help.com/' . $folder . '00/' . $id . '-original.jpg';
+   function url_exists($url) {
+    if(@file_get_contents($url,0,NULL,0,1))
+      {return 1;}
+    else
+      { return 0;}
+  }
+    $url_image_http = 'http:' . $url_image;
+    $url_image_help = 'https://scr.template-help.com/' . $folder . '00/' . $id . '-original.jpg';
     $url_image_tmimgcdn = 'https://s.tmimgcdn.com/scr/' . $folder . '00/' . $id . '-original.png';
 
-		if(url_exists($url_image_help)){
-      echo '<img id="url234" class="big_product_img" src="' . $url_image_help . '"alt="' . $template->type->getVisibleName() . '">';
-			//echo '<p style="text-align:center; margin-top:30px;"><a id="open-features" data-id="'. $template->getId() .'" ><b style="color:#2686CD">Подробнее</b><br></a></p>'; ?>
-			
-			<!-- Property function starts-->
+    if(url_exists($url_image_help)){
+      echo '<img id="url234" class="big_product_img" src="' . $url_image_help . '"alt="' . $template->type->getVisibleName() . '">'; ?>
+      
 <div  style="padding:20px">
-			<?php
+<?php
+
 $url = 'https://api.templatemonster.com/products/v2/products/ru?language=ru&ids=' . $id . '&expand=properties';
 $resp = file_get_contents($url, FALSE);
 
@@ -168,143 +159,36 @@ $yield = get_object_vars( $resp[0]->{'properties'} );
 
 /*key features start*/
 $feat_image1 = explode(", ", $yield['imageKeyFeatures']);
+//$feat_image1 = explode(", ", $yield['image']);
 $feat_image2 = explode(", ", $yield['previewScreensOrVideoURLs']);
 
 if(count($feat_image1) > 1){
-	for ($i=0; $i<=count($feat_image1); $i++){
-	echo '<img src="'. $feat_image1[$i] .'">';
-	}
+  for ($i=0; $i<=count($feat_image1); $i++){
+  echo '<img src="'. $feat_image1[$i] .'">';
+  }
 }
 else if($yield['htmlKeyFeatures'] == true){
-	echo $yield['htmlKeyFeatures'];
+  echo $yield['htmlKeyFeatures'];
 }
 else{
-	for ($i=0; $i<=count($feat_image2); $i++){
-	echo '<img src="'. $feat_image2[$i] .'">';
-	}
+  for ($i=0; $i<=count($feat_image2); $i++){
+  echo '<img src="'. $feat_image2[$i] .'">';
+  }
 }
-
 echo '<br><br>';
-/*key features end*/
 
-function checkproperty($key, $object){
-	foreach ( $object as $value => $property_name )
-        {
-          if ($property_name == true){
-			return true;  
-		  }
-		            
-        }
-}
-      
-	  foreach ( $yield as $key => $object )
-      {
-		if (checkproperty($key, $object) == true){ 
-		
-		switch ($key) {
-    case 'functionality':
-        $tr_key = 'Функционал';
-        break;
-    case 'features':
-        $tr_key = 'Функции';
-        break;
-    case 'media':
-        $tr_key = 'Медия';
-        break;		
-    case 'webForms':
-        $tr_key = 'Веб Формы';
-        break;
-    case 'additionalFeatures':
-        $tr_key = 'Дополнительные функции';
-        break;	
-	case 'templateSoftwareRequired':
-        $tr_key = 'Необходимое програмное обеспечение';
-        break;
-	case 'templateSources':
-        $tr_key = 'Файлы';
-        break;
-	case 'topic':
-        $tr_key = 'Темы';
-        break;
-	case 'templateHostingRequirements':
-        $tr_key = 'Требования по хостингу';
-        break;
-	case 'animation':
-        $tr_key = 'Анимация';
-        break;		
-	case 'popularity':
-        $tr_key = 'Популярность';
-        break;
-	case 'dateRange':
-        $tr_key = 'Дата';
-        break;	
-	case 'color':
-        $tr_key = 'Цвет';
-        break;
-	case 'demoNoIndex':
-        $tr_key = 'Локали';
-        break;
-	case 'trustedElements':
-        $tr_key = 'Поддержка';
-        break;
-	case 'styles':
-        $tr_key = 'Стили';
-        break;
-	case 'coding':
-        $tr_key = 'Код';
-        break;
-	case 'categoriesView':
-        $tr_key = 'Вид Категории';
-        break;
-	case 'currencies':
-        $tr_key = 'Валюты';
-        break;
-	case 'jqueryScripts':
-        $tr_key = 'Скрипты JQuery';
-        break;
-	case 'magentoExtensions':
-        $tr_key = 'Расширения Magento';
-        break;
-	case 'languageSupport':
-        $tr_key = 'Поддержка языков';
-        break;
-	case 'galleryScript':
-        $tr_key = 'Скрипт галереи';
-        break;
-	case 'additionalInfo':
-        $tr_key = 'Дополнительная информация';
-        break;
-	case 'wordpressCompatibility':
-        $tr_key = 'Версия WordPress';
-        break;
-		
-    default:
-        $tr_key = $key;
-}
-		
-		
-		echo '<strong>' . $tr_key . ': </strong>';
-        foreach ( $object as $value => $property_name )
-        {
-          echo $property_name . ', ';
-		            
-        }
-		echo '<br><br>';
-		}
-      }
+echo '<h5 class="custom-description"><b></b></h5>';
+  $url = 'https://api.templatemonster.com/products/v2/products/ru?language=ru&ids=' . $id . '&expand=properties';
+  $resp = file_get_contents($url, FALSE);
+  $resp = json_decode($resp);
+echo $resp[0]->{'templatePreviewFBTitle'};
 ?>
-<!-- Property function ends -->
-</div>			
-			
-		<?php } 
-
+</div>      
+    <?php } 
     elseif($url_image == true && !empty($url_image) && url_exists($url_image_tmimgcdn)){ ?>
       <img id="url234" class="big_product_img" src="<?php echo $url_image_tmimgcdn; ?>" alt="">
-      <!--<p style="text-align:center; margin-top:30px;"><a id="open-features" data-id="<?php // echo $template->getId(); ?>" ><b style="color:#2686CD">VIEW DETAILS</b><br></a></p>-->
-	  
-	  			<!-- Property function starts-->
 <div  style="padding:20px">
-			<?php
+<?php
 $url = 'https://api.templatemonster.com/products/v2/products/ru?language=ru&ids=' . $id . '&expand=properties';
 $resp = file_get_contents($url, FALSE);
 
@@ -316,139 +200,126 @@ $feat_image1 = explode(", ", $yield['imageKeyFeatures']);
 $feat_image2 = explode(", ", $yield['previewScreensOrVideoURLs']);
 
 if(count($feat_image1) > 1){
-	for ($i=0; $i<=count($feat_image1); $i++){
-	echo '<img src="'. $feat_image1[$i] .'">';
-	}
+  for ($i=0; $i<=count($feat_image1); $i++){
+  echo '<img src="'. $feat_image1[$i] .'">';
+  }
 }
 else if($yield['htmlKeyFeatures'] == true){
-	echo $yield['htmlKeyFeatures'];
+  echo $yield['htmlKeyFeatures'];
 }
 else{
-	for ($i=0; $i<=count($feat_image2); $i++){
-	echo '<img src="'. $feat_image2[$i] .'">';
-	}
+  for ($i=0; $i<=count($feat_image2); $i++){
+  echo '<img src="'. $feat_image2[$i] .'">';
+  }
 }
-
 echo '<br><br>';
 /*key features end*/
 
 function checkproperty($key, $object){
-	foreach ( $object as $value => $property_name )
+  foreach ( $object as $value => $property_name )
         {
           if ($property_name == true){
-			return true;  
-		  }
-		            
+      return true;  
+      }        
         }
-}
-      
-	  foreach ( $yield as $key => $object )
+}    
+    foreach ( $yield as $key => $object )
       {
-		if (checkproperty($key, $object) == true){ 
-		
-		switch ($key) {
+    if (checkproperty($key, $object) == true){ 
+    
+    switch ($key) {
     case 'functionality':
-        $tr_key = 'Функционал';
+        $tr_key = 'Functionality';
         break;
     case 'features':
-        $tr_key = 'Функции';
+        $tr_key = 'Features';
         break;
     case 'media':
-        $tr_key = 'Медия';
-        break;		
+        $tr_key = 'Media';
+        break;    
     case 'webForms':
-        $tr_key = 'Веб Формы';
+        $tr_key = 'Web Forms';
         break;
     case 'additionalFeatures':
-        $tr_key = 'Дополнительные функции';
-        break;	
-	case 'templateSoftwareRequired':
-        $tr_key = 'Необходимое програмное обеспечение';
+        $tr_key = 'Additional Features';
+        break;  
+  case 'templateSoftwareRequired':
+        $tr_key = 'Template Software Required';
         break;
-	case 'templateSources':
-        $tr_key = 'Файлы';
+  case 'templateSources':
+        $tr_key = 'Template Sources';
         break;
-	case 'topic':
-        $tr_key = 'Темы';
+  case 'topic':
+        $tr_key = 'Topic';
         break;
-	case 'templateHostingRequirements':
-        $tr_key = 'Требования по хостингу';
+  case 'templateHostingRequirements':
+        $tr_key = 'Template Hosting Requirements';
         break;
-	case 'animation':
-        $tr_key = 'Анимация';
-        break;		
-	case 'popularity':
-        $tr_key = 'Популярность';
+  case 'animation':
+        $tr_key = 'Animation';
+        break;    
+  case 'popularity':
+        $tr_key = 'Popularity';
         break;
-	case 'dateRange':
-        $tr_key = 'Дата';
-        break;	
-	case 'color':
-        $tr_key = 'Цвет';
+  case 'dateRange':
+        $tr_key = 'Date Range';
+        break;  
+  case 'color':
+        $tr_key = 'Color';
         break;
-	case 'demoNoIndex':
-        $tr_key = 'Локали';
+  case 'demoNoIndex':
+        $tr_key = 'Demo No Index';
         break;
-	case 'trustedElements':
-        $tr_key = 'Поддержка';
+  case 'trustedElements':
+        $tr_key = 'Trusted Elements';
         break;
-	case 'styles':
-        $tr_key = 'Стили';
+  case 'styles':
+        $tr_key = 'Styles';
         break;
-	case 'coding':
-        $tr_key = 'Код';
+  case 'coding':
+        $tr_key = 'Coding';
         break;
-	case 'categoriesView':
-        $tr_key = 'Вид Категории';
+  case 'categoriesView':
+        $tr_key = 'Categories View';
         break;
-	case 'currencies':
-        $tr_key = 'Валюты';
+  case 'currencies':
+        $tr_key = 'Currencies';
         break;
-	case 'jqueryScripts':
-        $tr_key = 'Скрипты JQuery';
+  case 'jqueryScripts':
+        $tr_key = 'JQuery Scripts';
         break;
-	case 'magentoExtensions':
-        $tr_key = 'Расширения Magento';
+  case 'magentoExtensions':
+        $tr_key = 'Magento Extensions';
         break;
-	case 'languageSupport':
-        $tr_key = 'Поддержка языков';
+  case 'languageSupport':
+        $tr_key = 'Language Support';
         break;
-	case 'galleryScript':
-        $tr_key = 'Скрипт галереи';
+  case 'galleryScript':
+        $tr_key = 'Gallery Script';
         break;
-	case 'additionalInfo':
-        $tr_key = 'Дополнительная информация';
+  case 'additionalInfo':
+        $tr_key = 'Additional Info';
         break;
-	case 'wordpressCompatibility':
-        $tr_key = 'Версия WordPress';
+  case 'wordpressCompatibility':
+        $tr_key = 'WordPress Compatibility';
         break;
-		
     default:
         $tr_key = $key;
 }
-		
-		
-		echo '<strong>' . $tr_key . ': </strong>';
+    echo '<strong>' . $tr_key . ': </strong>';
         foreach ( $object as $value => $property_name )
         {
-          echo $property_name . ', ';
-		            
+          echo $property_name . ', ';      
         }
-		echo '<br><br>';
-		}
+    echo '<br><br>';
+    }
       }
 ?></div>
-<!-- Property function ends -->
-	  
      <?php }
-
     elseif($url_image == true && !empty($url_image) && url_exists($url_image_http)){ ?>
       <img id="url234" class="big_product_img" src="<?php echo $url_image_http; ?>" alt="<?php echo $template->type->getVisibleName();?>">
-			<!--<p style="text-align:center; margin-top:30px;"><a id="open-features" data-id="<?php // echo $template->getId(); ?>" ><b style="color:#2686CD">Подробнее</b><br></a></p>-->
-			
-						<!-- Property function starts-->
 <div  style="padding:20px">
-			<?php
+      <?php
 $url = 'https://api.templatemonster.com/products/v2/products/ru?language=ru&ids=' . $id . '&expand=properties';
 $resp = file_get_contents($url, FALSE);
 
@@ -460,156 +331,185 @@ $feat_image1 = explode(", ", $yield['imageKeyFeatures']);
 $feat_image2 = explode(", ", $yield['previewScreensOrVideoURLs']);
 
 if(count($feat_image1) > 1){
-	for ($i=0; $i<=count($feat_image1); $i++){
-	echo '<img src="'. $feat_image1[$i] .'">';
-	}
+  for ($i=0; $i<=count($feat_image1); $i++){
+  echo '<img src="'. $feat_image1[$i] .'">';
+  }
 }
 else if($yield['htmlKeyFeatures'] == true){
-	echo $yield['htmlKeyFeatures'];
+  echo $yield['htmlKeyFeatures'];
 }
 else{
-	for ($i=0; $i<=count($feat_image2); $i++){
-	echo '<img src="'. $feat_image2[$i] .'">';
-	}
+  for ($i=0; $i<=count($feat_image2); $i++){
+  echo '<img src="'. $feat_image2[$i] .'">';
+  }
 }
 echo '<br><br>';
-/*key features end*/
 
 function checkproperty($key, $object){
-	foreach ( $object as $value => $property_name )
+  foreach ( $object as $value => $property_name )
         {
           if ($property_name == true){
-			return true;  
-		  }
-		            
+      return true;  
+      }        
         }
 }
-      
-	  foreach ( $yield as $key => $object )
+    foreach ( $yield as $key => $object )
       {
-		if (checkproperty($key, $object) == true){ 
-		
-		switch ($key) {
+    if (checkproperty($key, $object) == true){ 
+    
+    switch ($key) {
     case 'functionality':
-        $tr_key = 'Функционал';
+        $tr_key = 'Functionality';
         break;
     case 'features':
-        $tr_key = 'Функции';
+        $tr_key = 'Features';
         break;
     case 'media':
-        $tr_key = 'Медия';
-        break;		
+        $tr_key = 'Media';
+        break;    
     case 'webForms':
-        $tr_key = 'Веб Формы';
+        $tr_key = 'Web Forms';
         break;
     case 'additionalFeatures':
-        $tr_key = 'Дополнительные функции';
-        break;	
-	case 'templateSoftwareRequired':
-        $tr_key = 'Необходимое програмное обеспечение';
+        $tr_key = 'Additional Features';
+        break;  
+  case 'templateSoftwareRequired':
+        $tr_key = 'Template Software Required';
         break;
-	case 'templateSources':
-        $tr_key = 'Файлы';
+  case 'templateSources':
+        $tr_key = 'Template Sources';
         break;
-	case 'topic':
-        $tr_key = 'Темы';
+  case 'topic':
+        $tr_key = 'Topic';
         break;
-	case 'templateHostingRequirements':
-        $tr_key = 'Требования по хостингу';
+  case 'templateHostingRequirements':
+        $tr_key = 'Template Hosting Requirements';
         break;
-	case 'animation':
-        $tr_key = 'Анимация';
-        break;		
-	case 'popularity':
-        $tr_key = 'Популярность';
+  case 'animation':
+        $tr_key = 'Animation';
+        break;    
+  case 'popularity':
+        $tr_key = 'Popularity';
         break;
-	case 'dateRange':
-        $tr_key = 'Дата';
-        break;	
-	case 'color':
-        $tr_key = 'Цвет';
+  case 'dateRange':
+        $tr_key = 'Date Range';
+        break;  
+  case 'color':
+        $tr_key = 'Color';
         break;
-	case 'demoNoIndex':
-        $tr_key = 'Локали';
+  case 'demoNoIndex':
+        $tr_key = 'Demo No Index';
         break;
-	case 'trustedElements':
-        $tr_key = 'Поддержка';
+  case 'trustedElements':
+        $tr_key = 'Trusted Elements';
         break;
-	case 'styles':
-        $tr_key = 'Стили';
+  case 'styles':
+        $tr_key = 'Styles';
         break;
-	case 'coding':
-        $tr_key = 'Код';
+  case 'coding':
+        $tr_key = 'Coding';
         break;
-	case 'categoriesView':
-        $tr_key = 'Вид Категории';
+  case 'categoriesView':
+        $tr_key = 'Categories View';
         break;
-	case 'currencies':
-        $tr_key = 'Валюты';
+  case 'currencies':
+        $tr_key = 'Currencies';
         break;
-	case 'jqueryScripts':
-        $tr_key = 'Скрипты JQuery';
+  case 'jqueryScripts':
+        $tr_key = 'JQuery Scripts';
         break;
-	case 'magentoExtensions':
-        $tr_key = 'Расширения Magento';
+  case 'magentoExtensions':
+        $tr_key = 'Magento Extensions';
         break;
-	case 'languageSupport':
-        $tr_key = 'Поддержка языков';
+  case 'languageSupport':
+        $tr_key = 'Language Support';
         break;
-	case 'galleryScript':
-        $tr_key = 'Скрипт галереи';
+  case 'galleryScript':
+        $tr_key = 'Gallery Script';
         break;
-	case 'additionalInfo':
-        $tr_key = 'Дополнительная информация';
+  case 'additionalInfo':
+        $tr_key = 'Additional Info';
         break;
-	case 'wordpressCompatibility':
-        $tr_key = 'Версия WordPress';
+  case 'wordpressCompatibility':
+        $tr_key = 'WordPress Compatibility';
         break;
-		
     default:
         $tr_key = $key;
 }
-		
-		
-		echo '<strong>' . $tr_key . ': </strong>';
+    echo '<strong>' . $tr_key . ': </strong>';
         foreach ( $object as $value => $property_name )
         {
-          echo $property_name . ', ';
-		            
+          echo $property_name . ', ';     
         }
-		echo '<br><br>';
-		}
+    echo '<br><br>';
+    }
       }
-?>
-<!-- Property function ends -->			
-			
-		<?php } 
-
+?>  
+    <?php } 
     else {
-			echo Property_API2::get_template_single_property( $template->getId(), 'image-key-features', 'image-key-features' );
-			echo Property_API2::get_template_single_property( $template->getId(), 'Short description', 'Template Description' );
-			echo Property_API2::get_template_single_property( $template->getId(), 'Features' );
-			echo Property_API2::get_template_single_property( $template->getId(), 'Additional Features' );
-			echo Property_API2::get_template_single_property( $template->getId(), 'Topic' );
-			echo Property_API2::get_template_single_property( $template->getId(), 'Coding' );
-			echo Property_API2::get_template_single_property( $template->getId(), 'Categories View' );
-			echo Property_API2::get_template_single_property( $template->getId(), 'Functionality' );
-			echo Property_API2::get_template_single_property( $template->getId(), 'Animation' );
-			echo Property_API2::get_template_single_property( $template->getId(), 'productFamily', 'Product Family' );
-			echo Property_API2::get_template_single_property( $template->getId(), 'Layout' );
-			echo Property_API2::get_template_single_property( $template->getId(), 'Media' );
-			echo Property_API2::get_template_single_property( $template->getId(), 'Web Forms' );
-			echo Property_API2::get_template_single_property( $template->getId(), 'Language support' );
-			echo Property_API2::get_template_single_property( $template->getId(), 'Gallery Script' );
-			echo Property_API2::get_template_single_property( $template->getId(), 'Currencies' );
-			echo Property_API2::get_template_single_property( $template->getId(), 'Notice' );
-			#echo Property_API2::get_template_single_property( $template->getId(), 'template-hosting-requirements', 'Hosting Requirements' );
-			echo Property_API2::get_template_single_property( $template->getId(), 'image-description', 'image-description' );
-		}?>
-
-		<div id="viewdetails" style="display:none; padding:35px"></div>
-	</div>
+      echo Property_API2::get_template_single_property( $template->getId(), 'image-key-features', 'image-key-features' );
+      echo Property_API2::get_template_single_property( $template->getId(), 'Short description', 'Template Description' );
+      echo Property_API2::get_template_single_property( $template->getId(), 'Features' );
+      echo Property_API2::get_template_single_property( $template->getId(), 'Additional Features' );
+      echo Property_API2::get_template_single_property( $template->getId(), 'Topic' );
+      echo Property_API2::get_template_single_property( $template->getId(), 'Coding' );
+      echo Property_API2::get_template_single_property( $template->getId(), 'Categories View' );
+      echo Property_API2::get_template_single_property( $template->getId(), 'Functionality' );
+      echo Property_API2::get_template_single_property( $template->getId(), 'Animation' );
+      echo Property_API2::get_template_single_property( $template->getId(), 'productFamily', 'Product Family' );
+      echo Property_API2::get_template_single_property( $template->getId(), 'Layout' );
+      echo Property_API2::get_template_single_property( $template->getId(), 'Media' );
+      echo Property_API2::get_template_single_property( $template->getId(), 'Web Forms' );
+      echo Property_API2::get_template_single_property( $template->getId(), 'Language support' );
+      echo Property_API2::get_template_single_property( $template->getId(), 'Gallery Script' );
+      echo Property_API2::get_template_single_property( $template->getId(), 'Currencies' );
+      echo Property_API2::get_template_single_property( $template->getId(), 'Notice' );
+      #echo Property_API2::get_template_single_property( $template->getId(), 'template-hosting-requirements', 'Hosting Requirements' );
+      echo Property_API2::get_template_single_property( $template->getId(), 'image-description', 'image-description' );
+    }?>
+    <div id="viewdetails" style="display:none; padding:35px"></div>
+  </div>
 </div>
 <?php if($template->type->getId() != 32 && $template->type->getId() != 77){ ?>
-<a id="demo-page" style="max-width:300px; margin-top:30px" href="<?php echo S_SITE_URL ?>demo/<?php echo $id ?>.html" class="btn3" target="_blank">Демо</a>
+<a id="demo-page" style="max-width:300px; margin-top:30px" href="<?php echo S_SITE_URL ?>demo/<?php echo $id ?>.html" class="btn3" target="_blank">Demo</a>
 <?php } ?>
+
+<style type="text/css">
+  h3 {
+    text-decoration: none;
+    color: #243238;
+    font-weight: 700;
+    margin: 40px auto 20px;
+    font-size: 20px;
+    line-height: 30px;
+  }
+  p {
+    color: #243238;
+    padding-bottom: 0px;
+    margin-bottom: 3px;
+  }
+  a {
+    color: #2196f3!important;
+    text-decoration: none;
+  }
+  p > a {
+    color: #2196f3!important;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #0d47a1!important;
+    text-decoration: none;
+  }
+  p > a:hover {
+    color: #0d47a1!important;
+    text-decoration: none;
+  }
+  span {
+    color: #1c1e29!important;
+    text-decoration: none!important;
+  }  
+  span:hover {
+    color: #1c1e29!important;
+    text-decoration: none!important;
+  } 
+</style>

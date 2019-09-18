@@ -4,14 +4,9 @@ $components->default->init(array('page' => $page));
 <!DOCTYPE html>
 <html lang="ru_RU">
     <head>
-        <!-- <title><?php //echo $page->getHtmlTitle() ?></title> -->
-        <!-- <title><?php //echo (META_TITLE == true)? META_TITLE : "Интернет-магазин шаблонов"; ?></title> -->
-        <!-- <title><?php echo $page->getHtmlTitle() . '&nbsp'; echo (META_TITLE) ? META_TITLE : "Интернет-магазин шаблонов"; ?> </title> -->
-
         <title><?php
         if ( WHERE_WE_NOW == 'preview' ) {
             $components->default->property();
-            //echo str_replace("<br>","", substr(strstr(Property_API2::get_template_single_property( $template->getId(), 'Name of the template', 'Name of the template' ), ": "), 2));
             $url = 'https://api.templatemonster.com/products/v2/products/ru?language=ru&ids=' . $template->getId() . '&expand=properties';
 $resp = file_get_contents($url, FALSE);
 $resp = json_decode($resp);
@@ -166,9 +161,6 @@ echo $resp[0]->{'templateFullTitle'};
         <?php } ?>
         <?php $components->script->text_block(array('text' => $page->getGlobalText('GLOBAL_HEAD_SCRIPT'))) ?>
         <?php $components->script->text_block(array('text' => $page->getText('HEAD_SCRIPT'))) ?>
-        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> -->
-        <!-- <script type="text/javascript" src="<?php // echo FRONTEND_DIR?>/js/carhartl-jquery-cookie/jquery.cookie.js"></script>
-        <script type="text/javascript" src="<?php // echo FRONTEND_DIR?>/js/tm-livechat.min.js"></script> -->
      </head>
 
 <?php if ( PRELOADER == 'true' ) { ?>
@@ -183,12 +175,10 @@ $body_clases = '';
             $body_clases = 'webstudio-on no-scroll-y';
         }
     } elseif( PRELOADER == 'true' && WEBSTUDIO != 'true') {
-        // $body_clases = 'webstudio-off';
         $body_clases = 'no-scroll-y webstudio-off';
     } else {
        $body_clases = 'webstudio-off';
     }
-
 ?>
 <body class="<?php echo $body_clases; ?>">
 <!-- Preloader -->
@@ -217,7 +207,6 @@ $body_clases = '';
 <?php }?>
 <div id="page">
     <header id="header">
-
         <!-- RD Navbar -->
         <section class="menu-top">
             <div class="rd-navbar-wrap">
@@ -277,101 +266,74 @@ $body_clases = '';
                 </nav>
             </div>
             <!-- END RD Navbar -->
-            <!-- <div class="top_user_menu_container"><?php // $components->default->user_menu(array('current_page'=>@$current_page))?></div> -->
         </section>
         <!-- Search -->
         <section class="advance-search">
             <?php $components->header->header_content(array('current' => isset($curr_type) ? $curr_type : '', 'current_page' => @$current_page)); ?>
         </section>
-        <!-- Swiper -->
-        <?php if (SLIDER == 'true') { ?>
-        <?php if ( WHERE_WE_NOW == 'index' ) { ?>
-            <section class="slider-block swiper-container">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide" style="background-image:url(<?php echo FRONTEND_DIR .'/images/slider-bg-1.png'?>)">
-                    <div class="container">
-                        <div class="slider-img"><a href="<?php echo S_SITE_URL ?>wordpress-themes-type/55555.html"><img src="<?php echo FRONTEND_DIR .'/images/template-1.png'?>" alt="Slider 1" /></a></div>
-                        <div class="slider-caption">
-                            <div class="slider-poduct-name">
-                                <div class="slider-poduct-title">Monstroid - Лучшая Тема WordPress</div>
-                                <?php if (WEBSTUDIO == 'true') { ?> <?php } else { ?><div class="slider-poduct-price">5404 р.</div><?php } ?>
-                            </div>
-                            <div class="slider-poduct-buttons">
-                                <a href="<?php echo S_SITE_URL ?>wordpress-themes-type/55555.html" class="btn">Подробнее</a>
-                                <a href="<?php echo S_SITE_URL ?>demo/55555.html" target="_blank" class="btn3">Демонстрация</a>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide" style="background-image:url(<?php echo FRONTEND_DIR .'/images/slider-bg-1.png'?>)">
-                    <div class="container">
-                        <div class="slider-img"><a href="<?php echo S_SITE_URL ?>wordpress-themes-type/62222.html"> <img src="<?php echo FRONTEND_DIR .'/images/template-2.png'?>" alt="Slider 2" /> </a></div>
-                        <div class="slider-caption">
-                            <div class="slider-poduct-name">
-                                <div class="slider-poduct-title">Monstroid2 - многоцелевой Elementor WordPress шаблон</div>
-                                <?php if (WEBSTUDIO == 'true') { ?> <?php } else { ?><div class="slider-poduct-price">5130 р.</div><?php } ?>
-                            </div>
-                            <div class="slider-poduct-buttons">
-                                <a href="<?php echo S_SITE_URL ?>wordpress-themes-type/62222.html" class="btn">Подробнее</a>
-                                <a href="<?php echo S_SITE_URL ?>demo/62222.html" target="_blank" class="btn3">Демонстрация</a>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide" style="background-image:url(<?php echo FRONTEND_DIR .'/images/slider-bg-1.png'?>)">
-                    <div class="container">
-                        <div class="slider-img"><a href="<?php echo S_SITE_URL ?>website-templates-type/58888.html"> <img src="<?php echo FRONTEND_DIR .'/images/template-3.png'?>" alt="Slider 3" /> </a></div>
-                        <div class="slider-caption">
-                            <div class="slider-poduct-name">
-                                <div class="slider-poduct-title">Intense Многоцелевой Шаблон Сайта</div>
-                                <?php if (WEBSTUDIO == 'true') { ?> <?php } else { ?><div class="slider-poduct-price">5130 р.</div><?php } ?>
-                            </div>
-                            <div class="slider-poduct-buttons">
-                                <a href="<?php echo S_SITE_URL ?>website-templates-type/58888.html" class="btn">Подробнее</a>
-                                <a href="<?php echo S_SITE_URL ?>demo/58888.html" target="_blank" class="btn3">Демонстрация</a>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide" style="background-image:url(<?php echo FRONTEND_DIR .'/images/slider-bg-1.png'?>)">
-                    <div class="container">
-                        <div class="slider-img"><a href="<?php echo S_SITE_URL ?>shopify-themes-type/63842.html"> <img src="<?php echo FRONTEND_DIR .'/images/template-4.png'?>" alt="Slider 4" /> </a></div>
-                        <div class="slider-caption">
-                            <div class="slider-poduct-name">
-                                <div class="slider-poduct-title">Multifly - Многоцелевой Shopify шаблон</div>
-                                <?php if (WEBSTUDIO == 'true') { ?> <?php } else { ?><div class="slider-poduct-price">10876 р.</div><?php } ?>
-                            </div>
-                            <div class="slider-poduct-buttons">
-                                <a href="<?php echo S_SITE_URL ?>shopify-themes-type/63842.html" class="btn">Подробнее</a>
-                                <a href="<?php echo S_SITE_URL ?>demo/63842.html" target="_blank" class="btn3">Демонстрация</a>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide" style="background-image:url(<?php echo FRONTEND_DIR .'/images/slider-bg-1.png'?>)">
-                    <div class="container">
-                        <div class="slider-img"> <a href="<?php echo S_SITE_URL ?>woocommerce-themes-type/63000.html"> <img src="<?php echo FRONTEND_DIR .'/images/template-5.png'?>" alt="Slider 5" /> </a></div>
-                        <div class="slider-caption">
-                            <div class="slider-poduct-name">
-                                <div class="slider-poduct-title">Woostroid - Многоцелевой WooCommerce Шаблон</div>
-                                <?php if (WEBSTUDIO == 'true') { ?> <?php } else { ?><div class="slider-poduct-price">9235 р.</div><?php } ?>
-                            </div>
-                            <div class="slider-poduct-buttons">
-                                <a href="<?php echo S_SITE_URL ?>woocommerce-themes-type/63000.html" class="btn">Подробнее</a>
-                                <a href="<?php echo S_SITE_URL ?>demo/63000.html" target="_blank" class="btn3">Демонстрация</a>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-button-arrow">
-                    <!-- Add Arrows -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                </div>
-            </section>
-        <?php } ?>
-        <?php } ?>
+<!-- Swiper -->
+<style>
+    section.swiper-container{
+        background: url("https://rms3.templates.com/themes/theme-2018-v03-en/images/slider-bg-grey.jpg") no-repeat center center fixed!important; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover!important;
+    }
+</style>
+
+<?php 
+    $url = 'https://api.templatemonster.com/products/v2/products?properties[featured]=1';
+        $resp = file_get_contents($url, FALSE);
+        $resp = json_decode($resp);
+    if (SLIDER == 'true') { ?>
+
+<?php if ( WHERE_WE_NOW == 'index' ) { ?>          
+
+<section class="slider-block swiper-container">          
+    <div class="swiper-wrapper">
+                
+<?php for ($i=0; $resp[$i]->{'templateId'} != 0 ; $i++){
+    $id = $resp[$i]->{'templateId'};
+    $folder = floor($id / 100);
+    $url_image = "//scr.template-help.com/" . $folder . "00/" . $id . "-med.jpg";
+    $template = NULL;
+    $_template = ORM::factory('template', $id);
+    $macrophage = new Theme_Macrophage();
+    $template = new Theme_Template();
+    $template->setMacrophage($macrophage);
+    $template->setRecord($_template);
+
+if(strpos(strval($template->getUrl()), "$id") != false){
+
+    $template->selectSubsection(NULL);
+    $template = $template->restrict();
+    $template_title = $resp[$i]->{'propertyValues'}->{'specificTemplateNamePreview'}[0]->{'value'}?$resp[$i]->{'propertyValues'}->{'specificTemplateNamePreview'}[0]->{'value'} : $resp[$i]->{'propertyValues'}->{'nameOfTheTemplate'}[0]->{'value'};
+?>
+    <div class="swiper-slide">
+      <div class="container disableBlur">
+        <div class="slider-img disableBlur"><a href="<?php echo $template->getUrl(); ?>"><img src="<?php echo $url_image; ?>" alt="Slide <?php echo ($i+1); ?>"/></a></div>
+          <div class="slider-caption disableBlur">
+            <div class="slider-poduct-name">
+              <div class="slider-poduct-title"><?php echo $template_title; ?></div>
+                <?php if (WEBSTUDIO == 'true') {} else { ?><div class="slider-poduct-price"><?php echo '₽' . $resp[$i]->{'price'}; ?></div><?php } ?>
+              </div>
+              <div class="slider-poduct-buttons">
+                <a href="<?php echo $template->getUrl(); ?>" class="btn">Подробнее</a>
+                <a href="<?php echo S_SITE_URL . 'demo/' . $id . '.html'; ?>" target="_blank" class="btn3">Демо</a>
+              </div>
+        </div>
+      </div>
+    </div>
+    <?php }} ?>
+  </div>
+  <div class="swiper-button-arrow">                     
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</section>
+<?php } ?>
+<?php } ?> 
 
     </header>
     <main id="content">
@@ -419,17 +381,10 @@ $body_clases = '';
         </div>
     </section><?php } ?>
 
-
-
-
-
     <div id="footer">
         <?php $components->footer->footer_content(array('page' => $page, 'current_page' => @$current_page)); ?>
     </div>
 <?php
-
-// $productType = '';
-// $templateId = '';
     if (PRESALECHAT != 'false') {
 ?>
 <script type="text/javascript">
@@ -438,8 +393,6 @@ jQuery(document).ready(function() {
         actionUrl:'<?php echo FRONTEND_DIR?>/chat.php',
         affId:'<?php echo AFF ?>',
         presetCode:'<?php echo PR_CODE ?>',
-//        productType:'<?php echo $productType ?>',
-//        templateId:'<?php echo $templateId ?>',
         title: 'Живой чат', // title of dialog open button and dialog header
         startChatTitle: 'Начать чат', // title of "Start Chat" button
         content: '<p id="p11"> - Позвольте помочь Вам подобрать шаблон.</p><p id="p22">Какой сайт Вы планируете делать?<p>', // dialog text
@@ -472,7 +425,6 @@ $('.template_thumbnail').css({'height':cw+'px'});
                 Заполните пожалуйста форму<br/>
                 для оформления заказа
             </div>
-            <!-- <span class="btn-close"></span> -->
             <form id="request-form">
                 <fieldset>
                     <input type="text" name="name" class="input-name" placeholder="Ваше имя:">
@@ -506,7 +458,6 @@ $('.template_thumbnail').css({'height':cw+'px'});
             margin-top: 9px;
             border: 1px solid #8C8C8C;
         }
-
         #request-form .confirm-block .text-confirm {
             font-family: Roboto;
             font-style: normal;
@@ -515,33 +466,26 @@ $('.template_thumbnail').css({'height':cw+'px'});
             font-size: 14px;
             color: #8C8C8C;
         }
-
         #request-form .confirm-block {
             margin-top: 20px;
         }
-
         .popup_cnt {
             height: 435px;
             box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
         }
-
         .btn2.send-button {
             background: #1069AA;
         }
-
         .btn2.send-button:hover {
             background: #4eb3fd;
         }
-
         .popup form#request-form {
             padding: 40px 30px 50px;
         }
-
         .popup #request-form input[type=submit] {
             margin-top: 25px;
             pointer-events: none;
         }
-
         .popup #request-form input[type=text] {
             width: 100%;
             height: 42px;
@@ -551,7 +495,6 @@ $('.template_thumbnail').css({'height':cw+'px'});
             margin-bottom: 15px;
             border: 1px solid #E5E5E5;
         }
-
         .popup #request-form label.notvalid {
             position: absolute;
             display: block;
@@ -559,7 +502,6 @@ $('.template_thumbnail').css({'height':cw+'px'});
             color: #2686CD;
             margin-top: -17px;
         }
-
         body .fancybox-close {
             top: -150px;
             right: -145px;
@@ -602,7 +544,6 @@ $('.template_thumbnail').css({'height':cw+'px'});
     </script>
 <?php } ?>
 <?php $components->script->text_block(array('text' => $page->getGlobalText('GLOBAL_BOTTOM_SCRIPT'))) ?>
-<?php /* $components->script->text_block(array('text' => $page->getText('BOTTOM_SCRIPT'))) */ ?>
 <script>var FRONTEND_DIR = "<?php echo FRONTEND_DIR ?>"</script>
 <script type="text/javascript" src="<?php echo FRONTEND_DIR ?>/js/script.js"></script>
 </body>

@@ -43,7 +43,7 @@ if (WEBSTUDIO == 'true') { ?>
                 $url_category = "/category/" . $template->categories[0]->getAlias();
                 $category = $template->categories[0]->getVisibleName(); 
             ?>
-            <dl>
+            <dl <?php if($template->type->getId() == 7 || $template->type->getId() == 32 || $template->type->getId() == 77 || $template->type->getId() == 100){ echo 'style="opacity:0"'; } ?> >
                 <dt>Category: </dt>
                 <dd><a href="<?php echo trim(S_SITE_URL, "/") . $url_category . "/"; ?>"><?php echo $category; ?></a></dd>				
             </dl>
@@ -55,7 +55,7 @@ if (WEBSTUDIO == 'true') { ?>
             <?php $id = $template->getId(); ?>
             <div class="btn-box">
 			
-				<?php if($template->type->getId() != 32 && $template->type->getId() != 77){ ?>
+				<?php if($template->type->getId() != 32 && $template->type->getId() != 77 && $template->type->getId() != 48 && $template->type->getId() != 49 && $template->type->getId() != 112 && $template->type->getId() != 101 && $template->type->getId() != 110 && $template->type->getId() != 104 && $template->type->getId() != 96 && $template->type->getId() != 57 && $template->type->getId() != 12 && $template->type->getId() != 106 && $template->type->getId() != 105 && $template->type->getId() != 97 && $template->type->getId() != 11 && $template->type->getId() != 116 && $template->type->getId() != 108 && $template->type->getId() != 100 && $template->type->getId() != 88 && $template->type->getId() != 107 && $template->type->getId() != 94 && $template->type->getId() != 7 && $template->type->getId() != 5 && $template->type->getId() != 74 && $template->type->getId() != 40){ ?>
 				<a href="<?php echo S_SITE_URL ?>demo/<?php echo $id ?>.html" target="_blank" class="btn3">Demo</a>
 				<a href="<?php echo $template->getUrl()?>" class="btn">Details</a>
 				<?php }else{?>
@@ -79,7 +79,7 @@ if (WEBSTUDIO == 'true') { ?>
                 $url_category = "/category/" . $template->categories[0]->getAlias();
                 $category = $template->categories[0]->getVisibleName(); 
             ?>
-            <dl>
+            <dl <?php if($template->type->getId() == 7 || $template->type->getId() == 32 || $template->type->getId() == 77 || $template->type->getId() == 100){ echo 'style="opacity:0"'; } ?> >
                 <dt>Category: </dt>
                 <dd><a href="<?php echo trim(S_SITE_URL, "/") . $url_category . "/"; ?>"><?php echo $category; ?></a></dd>
             </dl>
@@ -90,7 +90,7 @@ if (WEBSTUDIO == 'true') { ?>
             </dl>
             <?php $id = $template->getId(); ?>
             <div class="btn-box">
-				<?php if($template->type->getId() != 32 && $template->type->getId() != 77){ ?>
+				<?php if($template->type->getId() != 32 && $template->type->getId() != 77 && $template->type->getId() != 48 && $template->type->getId() != 49 && $template->type->getId() != 112 && $template->type->getId() != 101 && $template->type->getId() != 110 && $template->type->getId() != 104 && $template->type->getId() != 96 && $template->type->getId() != 57 && $template->type->getId() != 12 && $template->type->getId() != 106 && $template->type->getId() != 105 && $template->type->getId() != 97 && $template->type->getId() != 11 && $template->type->getId() != 116 && $template->type->getId() != 108 && $template->type->getId() != 100 && $template->type->getId() != 88 && $template->type->getId() != 107 && $template->type->getId() != 94 && $template->type->getId() != 7 && $template->type->getId() != 5 && $template->type->getId() != 74 && $template->type->getId() != 40){ ?>
 				<a href="<?php echo S_SITE_URL ?>demo/<?php echo $id ?>.html" target="_blank" class="btn3">Demo</a>
 				<a href="<?php echo $template->getUrl()?>" class="btn">Details</a>
 				<?php }else{ ?>
@@ -111,9 +111,9 @@ if (WEBSTUDIO == 'true') { ?>
         <div class="template_info">
             <?php if (defined('CALCULATE_DISCOUNT') && CALCULATE_DISCOUNT == 1): ?>
                 <div class="price_tag discount">
-                    <span class="old-price"><?php echo $template->getCurrencySymbol();?><?php echo util::template_price ($template->getRegularPrice()) ?></span>
+                    <span class="old-price"><?php  echo $template->getCurrencySymbol();?><?php // echo util::template_price ($template->getRegularPrice()) ?><?php echo floor((util::template_price ($template->getRegularPrice()))/DISCOUNT); ?></span>
                     <span>
-                        <?php echo $template->getCurrencySymbol();?><?php echo util::template_price ($template->getRegularPrice() * ((DISCOUNT < 0.7) ? 0.7 : DISCOUNT )); ?>
+                        <?php echo $template->getCurrencySymbol();?><?php // echo util::template_price ($template->getRegularPrice() * ((DISCOUNT < 0.7) ? 0.7 : DISCOUNT )); ?><?php echo util::template_price ($template->getRegularPrice()); ?>
                     </span>
                 </div>
             <?php else: ?>
@@ -128,7 +128,7 @@ if (WEBSTUDIO == 'true') { ?>
 				$url_category = "/category/" . $template->categories[0]->getAlias();
 				$category = $template->categories[0]->getVisibleName(); 
 			?>
-            <dl>
+            <dl <?php if($template->type->getId() == 7 || $template->type->getId() == 32 || $template->type->getId() == 77 || $template->type->getId() == 100){ echo 'style="opacity:0"'; } ?> >
    				<dt>Category: </dt>
 				<dd><a href="<?php echo trim(S_SITE_URL, "/") . $url_category . "/"; ?>"><?php echo $category; ?></a></dd>
             </dl>
@@ -140,7 +140,7 @@ if (WEBSTUDIO == 'true') { ?>
 		
             <?php $id = $template->getId(); ?>
             <div class="btn-box">
-				<?php if($template->type->getId() != 32 && $template->type->getId() != 77){ ?>
+				<?php if($template->type->getId() != 32 && $template->type->getId() != 77 && $template->type->getId() != 48 && $template->type->getId() != 49 && $template->type->getId() != 112 && $template->type->getId() != 101 && $template->type->getId() != 110 && $template->type->getId() != 104 && $template->type->getId() != 96 && $template->type->getId() != 57 && $template->type->getId() != 12 && $template->type->getId() != 106 && $template->type->getId() != 105 && $template->type->getId() != 97 && $template->type->getId() != 11 && $template->type->getId() != 116 && $template->type->getId() != 108 && $template->type->getId() != 100 && $template->type->getId() != 88 && $template->type->getId() != 107 && $template->type->getId() != 94 && $template->type->getId() != 7 && $template->type->getId() != 5 && $template->type->getId() != 74 && $template->type->getId() != 40){ ?>
 				<a href="<?php echo S_SITE_URL ?>demo/<?php echo $id ?>.html" target="_blank" class="btn3">Demo</a>
 				<a href="<?php echo $template->getUrl()?>" class="btn">Details</a>
 				<?php }else{?>
@@ -176,7 +176,7 @@ if (WEBSTUDIO == 'true') { ?>
                 $url_category = "/category/" . $template->categories[0]->getAlias();
                 $category = $template->categories[0]->getVisibleName();
             ?>  
-            <dl>
+            <dl <?php if($template->type->getId() == 7 || $template->type->getId() == 32 || $template->type->getId() == 77 || $template->type->getId() == 100){ echo 'style="opacity:0"'; } ?> >
                 <dt>Category: </dt>
                 <dd><a href="<?php echo trim(S_SITE_URL, "/") . $url_category . "/"; ?>"><?php echo $category; ?></a></dd>
             </dl>

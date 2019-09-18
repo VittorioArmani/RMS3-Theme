@@ -72,7 +72,6 @@ if ($status != 200 ) {
       padding: 0 0 0 10px;
     }
   </style>
-
 </div>
 
 <style>
@@ -157,7 +156,8 @@ display:none;
       
       <!-- Property function starts-->
 <div  style="padding:20px">
-      <?php
+<?php
+
 $url = 'https://api.templatemonster.com/products/v2/products/en?language=en&ids=' . $id . '&expand=properties';
 $resp = file_get_contents($url, FALSE);
 
@@ -165,7 +165,8 @@ $resp = json_decode($resp);
 $yield = get_object_vars( $resp[0]->{'properties'} );
 
 /*key features start*/
-$feat_image1 = explode(", ", $yield['imageKeyFeatures']);
+// $feat_image1 = explode(", ", $yield['imageKeyFeatures']);
+$feat_image1 = explode(", ", $yield['image']);
 $feat_image2 = explode(", ", $yield['previewScreensOrVideoURLs']);
 
 if(count($feat_image1) > 1){
@@ -184,106 +185,12 @@ else{
 echo '<br><br>';
 /*key features end*/
 
-function checkproperty($key, $object){
-  foreach ( $object as $value => $property_name )
-        {
-          if ($property_name == true){
-      return true;  
-      }    
-        }
-} 
-    foreach ( $yield as $key => $object )
-      {
-    if (checkproperty($key, $object) == true){ 
-    
-    switch ($key) {
-    case 'functionality':
-        $tr_key = 'Functionality';
-        break;
-    case 'features':
-        $tr_key = 'Features';
-        break;
-    case 'media':
-        $tr_key = 'Media';
-        break;    
-    case 'webForms':
-        $tr_key = 'Web Forms';
-        break;
-    case 'additionalFeatures':
-        $tr_key = 'Additional Features';
-        break;  
-  case 'templateSoftwareRequired':
-        $tr_key = 'Template Software Required';
-        break;
-  case 'templateSources':
-        $tr_key = 'Template Sources';
-        break;
-  case 'topic':
-        $tr_key = 'Topic';
-        break;
-  case 'templateHostingRequirements':
-        $tr_key = 'Template Hosting Requirements';
-        break;
-  case 'animation':
-        $tr_key = 'Animation';
-        break;    
-  case 'popularity':
-        $tr_key = 'Popularity';
-        break;
-  case 'dateRange':
-        $tr_key = 'Date Range';
-        break;  
-  case 'color':
-        $tr_key = 'Color';
-        break;
-  case 'demoNoIndex':
-        $tr_key = 'Demo No Index';
-        break;
-  case 'trustedElements':
-        $tr_key = 'Trusted Elements';
-        break;
-  case 'styles':
-        $tr_key = 'Styles';
-        break;
-  case 'coding':
-        $tr_key = 'Coding';
-        break;
-  case 'categoriesView':
-        $tr_key = 'Categories View';
-        break;
-  case 'currencies':
-        $tr_key = 'Currencies';
-        break;
-  case 'jqueryScripts':
-        $tr_key = 'JQuery Scripts';
-        break;
-  case 'magentoExtensions':
-        $tr_key = 'Magento Extensions';
-        break;
-  case 'languageSupport':
-        $tr_key = 'Language Support';
-        break;
-  case 'galleryScript':
-        $tr_key = 'Gallery Script';
-        break;
-  case 'additionalInfo':
-        $tr_key = 'Additional Info';
-        break;
-  case 'wordpressCompatibility':
-        $tr_key = 'WordPress Compatibility';
-        break;
-    default:
-        $tr_key = $key;
-}
-    echo '<strong>' . $tr_key . ': </strong>';
-        foreach ( $object as $value => $property_name )
-        {
-          echo $property_name . ', ';
-                
-        }
-    echo '<br><br>';
-    }
-      }
+echo '<h5 class="custom-description"><b></b></h5>';
+  $url = 'https://api.templatemonster.com/products/v2/products/en?language=en&ids=' . $id . '&expand=properties';
+  $resp = file_get_contents($url, FALSE);
+  $resp = json_decode($resp);
+echo $resp[0]->{'templatePreviewFBTitle'};
+
 ?>
 <!-- Property function ends -->
 </div>      
@@ -293,7 +200,8 @@ function checkproperty($key, $object){
       <!--<p style="text-align:center; margin-top:30px;"><a id="open-features" data-id="<?php // echo $template->getId(); ?>" ><b style="color:#2686CD">VIEW DETAILS</b><br></a></p>-->
       <!-- Property function starts-->
 <div  style="padding:20px">
-      <?php
+
+<?php
 $url = 'https://api.templatemonster.com/products/v2/products/en?language=en' . $id . '&expand=properties';
 $resp = file_get_contents($url, FALSE);
 
@@ -585,3 +493,43 @@ function checkproperty($key, $object){
 <?php if($template->type->getId() != 32 && $template->type->getId() != 77){ ?>
 <a id="demo-page" style="max-width:300px; margin-top:30px" href="<?php echo S_SITE_URL ?>demo/<?php echo $id ?>.html" class="btn3" target="_blank">Demo</a>
 <?php } ?>
+
+<style type="text/css">
+  h3 {
+    text-decoration: none;
+    color: #243238;
+    font-weight: 700;
+    margin: 40px auto 20px;
+    font-size: 20px;
+    line-height: 30px;
+  }
+  p {
+    color: #243238;
+    padding-bottom: 0px;
+    margin-bottom: 3px;
+  }
+  a {
+    color: #2196f3!important;
+    text-decoration: none;
+  }
+  p > a {
+    color: #2196f3!important;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #0d47a1!important;
+    text-decoration: none;
+  }
+  p > a:hover {
+    color: #0d47a1!important;
+    text-decoration: none;
+  }
+  span {
+    color: #1c1e29!important;
+    text-decoration: none!important;
+  }  
+  span:hover {
+    color: #1c1e29!important;
+    text-decoration: none!important;
+  } 
+</style>

@@ -78,13 +78,13 @@ $keyword = str_replace(" ","%20",$keyword);
     //echo $matches[1];
     $traduccion = $matches[1];
     $traduccion = str_replace(",","",$traduccion);
-    Header ("Location: /ru-web-studio/search/?busqueda=$busqueda&type=$type&category=$category&price1=$price1&price2=$price2&number=$number&keyword=$traduccion");
+    Header ("Location: /ru/search/?busqueda=$busqueda&type=$type&category=$category&price1=$price1&price2=$price2&number=$number&keyword=$traduccion");
         ob_end_flush();
     ob_clean();       //someone also mention the need to use this statement
     exit();
   } else {
     //echo "Temporary failure. Please try again later. Sorry for the inconvenience.";
-    Header ("Location: /ru-web-studio/search/?busqueda=$busqueda&type=$type&category=$category&price1=$price1&price2=$price2&number=$number&keyword=$traduccion");
+    Header ("Location: /ru/search/?busqueda=$busqueda&type=$type&category=$category&price1=$price1&price2=$price2&number=$number&keyword=$traduccion");
         ob_end_flush();
     ob_clean();       //someone also mention the need to use this statement
     exit();

@@ -279,104 +279,73 @@ $body_clases = '';
         <section class="advance-search">
             <?php $components->header->header_content(array('current' => isset($curr_type) ? $curr_type : '', 'current_page' => @$current_page)); ?>
         </section>
-        <!-- Swiper -->
-        <?php if (SLIDER == 'true') { ?>
-        <?php if ( WHERE_WE_NOW == 'index' ) { ?>            
-            <section class="slider-block swiper-container">          
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide" style="background-image:url(<?php echo FRONTEND_DIR .'/images/slider-bg-1.png'?>)">
-                    <div class="container">
-                        <div class="slider-img"><a href="<?php echo S_SITE_URL ?>wordpress-themes-type/55555.html"><img src="<?php echo FRONTEND_DIR .'/images/template-1.png'?>" alt="Slider 1" /></a></div>
-                        <div class="slider-caption">
-                            <div class="slider-poduct-name">
-                                <div class="slider-poduct-title">Migliore Modello per WordPress <br>Tema Multifunzionale</div>
-                                <?php if (WEBSTUDIO == 'true') { ?> <?php } else { ?>
-                                <div class="slider-poduct-price">A soli<span class="slider-home_price">&nbsp;€69</span></font></div><?php } ?>
-                            </div>
-                            <div class="slider-poduct-buttons">
-                                <a href="<?php echo S_SITE_URL ?>wordpress-themes-type/55555.html" class="btn">Vedi dettagli</a>
-                                <a href="<?php echo S_SITE_URL ?>demo/55555.html" target="_blank" class="btn3">Live Demo</a>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide" style="background-image:url(<?php echo FRONTEND_DIR .'/images/slider-bg-1.png'?>)">
-                    <div class="container">
-                        <div class="slider-img"><a href="<?php echo S_SITE_URL ?>wordpress-themes-type/62222.html"> <img src="<?php echo FRONTEND_DIR .'/images/template-2.png'?>" alt="Slider 2" /> </a></div>
-                        <div class="slider-caption">
-                            <div class="slider-poduct-name">
-                                <div class="slider-poduct-title">Monstroid2 - Multi Tema WordPress <br>Modello con Elementor Builder Integrato</div>
-                                <?php if (WEBSTUDIO == 'true') { ?> <?php } else { ?>
-                                    <div class="slider-poduct-price">A soli<span class="slider-home_price">&nbsp;€66</span></div><?php } ?>
-                            </div>
-                            <div class="slider-poduct-buttons">
-                                <a href="<?php echo S_SITE_URL ?>wordpress-themes-type/62222.html" class="btn">Vedi dettagli</a>
-                                <a href="<?php echo S_SITE_URL ?>demo/62222.html" target="_blank" class="btn3">Live Demo</a>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide" style="background-image:url(<?php echo FRONTEND_DIR .'/images/slider-bg-1.png'?>)">
-                    <div class="container">
-                        <div class="slider-img"><a href="<?php echo S_SITE_URL ?>website-templates-type/58888.html"> <img src="<?php echo FRONTEND_DIR .'/images/template-3.png'?>" alt="Slider 3" /> </a></div>
-                        <div class="slider-caption">
-                            <div class="slider-poduct-name">
-                                <div class="slider-poduct-title">Intense Sito Web HTML <br>Modello Multifunzionale</div>
-                                <?php if (WEBSTUDIO == 'true') { ?> <?php } else { ?>
-                                    <div class="slider-poduct-price">A soli<span class="slider-home_price">&nbsp;€66</span></div><?php } ?>
-                            </div>
-                            <div class="slider-poduct-buttons">
-                                <a href="<?php echo S_SITE_URL ?>website-templates-type/58888.html" class="btn">Vedi dettagli</a>
-                                <a href="<?php echo S_SITE_URL ?>demo/58888.html" target="_blank" class="btn3">Live Demo</a>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide" style="background-image:url(<?php echo FRONTEND_DIR .'/images/slider-bg-1.png'?>)">
-                    <div class="container">
-                        <div class="slider-img"><a href="<?php echo S_SITE_URL ?>shopify-themes-type/63842.html"> <img src="<?php echo FRONTEND_DIR .'/images/template-4.png'?>" alt="Slider 4" /> </a></div>
-                        <div class="slider-caption">
-                            <div class="slider-poduct-name">
-                                <div class="slider-poduct-title">Multifly - eCommerce Online Multiuso<br>  Tema Premium Responsive Shopify</div>
-                                <?php if (WEBSTUDIO == 'true') { ?> <?php } else { ?>
-                                    <div class="slider-poduct-price">A soli<span class="slider-home_price">&nbsp;€118</span></div><?php } ?>
-                            </div>
-                            <div class="slider-poduct-buttons">
-                                <a href="<?php echo S_SITE_URL ?>shopify-themes-type/63842.html" class="btn">Vedi dettagli</a>
-                                <a href="<?php echo S_SITE_URL ?>demo/63842.html" target="_blank" class="btn3">Live Demo</a>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide" style="background-image:url(<?php echo FRONTEND_DIR .'/images/slider-bg-1.png'?>)">
-                    <div class="container">
-                        <div class="slider-img"> <a href="<?php echo S_SITE_URL ?>woocommerce-themes-type/63000.html"> <img src="<?php echo FRONTEND_DIR .'/images/template-5.png'?>" alt="Slider 5" /> </a></div>
-                        <div class="slider-caption">
-                            <div class="slider-poduct-name">
-                                <div class="slider-poduct-title">Woostroid - Tema WooCommerce <br> WordPress Multifunzionale</div>
-                                <?php if (WEBSTUDIO == 'true') { ?> <?php } else { ?>
-                                <div class="slider-poduct-price">A soli<span class="slider-home_price">&nbsp;€88</span></div><?php } ?>
-                            </div>
-                            <div class="slider-poduct-buttons">
-                                <a href="<?php echo S_SITE_URL ?>woocommerce-themes-type/63000.html" class="btn">Vedi dettagli</a>
-                                <a href="<?php echo S_SITE_URL ?>demo/63000.html" target="_blank" class="btn3">Live Demo</a>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-button-arrow">
-                    <!-- Add Arrows -->                        
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                </div>
-            </section> 
-        <?php } ?>
-        <?php } ?>
-       
+<!-- Swiper -->
+
+<style>
+    section.swiper-container{
+        background: url("https://rms3.templates.com/themes/theme-2018-v03-en/images/slider-bg-grey.jpg") no-repeat center center fixed!important; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover!important;
+    }
+</style>
+
+<?php 
+    $url = 'https://api.templatemonster.com/products/v2/products?properties[featured]=1';
+        $resp = file_get_contents($url, FALSE);
+        $resp = json_decode($resp);
+    if (SLIDER == 'true') { ?>
+
+<?php if ( WHERE_WE_NOW == 'index' ) { ?>          
+
+<section class="slider-block swiper-container">          
+    <div class="swiper-wrapper">
+                
+<?php for ($i=0; $resp[$i]->{'templateId'} != 0 ; $i++){
+    $id = $resp[$i]->{'templateId'};
+    $folder = floor($id / 100);
+    $url_image = "//scr.template-help.com/" . $folder . "00/" . $id . "-med.jpg";
+    $template = NULL;
+    $_template = ORM::factory('template', $id);
+    $macrophage = new Theme_Macrophage();
+    $template = new Theme_Template();
+    $template->setMacrophage($macrophage);
+    $template->setRecord($_template);
+
+if(strpos(strval($template->getUrl()), "$id") != false){
+
+    $template->selectSubsection(NULL);
+    $template = $template->restrict();
+    $template_title = $resp[$i]->{'propertyValues'}->{'specificTemplateNamePreview'}[0]->{'value'}?$resp[$i]->{'propertyValues'}->{'specificTemplateNamePreview'}[0]->{'value'} : $resp[$i]->{'propertyValues'}->{'nameOfTheTemplate'}[0]->{'value'};
+?>
+    <div class="swiper-slide">
+      <div class="container disableBlur">
+        <div class="slider-img disableBlur"><a href="<?php echo $template->getUrl(); ?>"><img src="<?php echo $url_image; ?>" alt="Slide <?php echo ($i+1); ?>"/></a></div>
+          <div class="slider-caption disableBlur">
+            <div class="slider-poduct-name">
+              <div class="slider-poduct-title"><?php echo $template_title; ?></div>
+                <?php if (WEBSTUDIO == 'true') {} else { ?><div class="slider-poduct-price"><?php echo '€' . $resp[$i]->{'price'}; ?></div><?php } ?>
+              </div>
+              <div class="slider-poduct-buttons">
+                <a href="<?php echo $template->getUrl(); ?>" class="btn">Vedi Dettagli</a>
+                <a href="<?php echo S_SITE_URL . 'demo/' . $id . '.html'; ?>" target="_blank" class="btn3">Live Demo</a>
+              </div>
+        </div>
+      </div>
+    </div>
+    <?php }} ?>
+  </div>
+  <div class="swiper-button-arrow">                     
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</section> 
+<?php } ?>
+<?php } ?>      
     </header>
     <main id="content">
-        <?php echo $content; ?>
+      <?php echo $content; ?>
     </main>
 	<?php if(BANNERS != 'false' && WHERE_WE_NOW != 'index' && WHERE_WE_NOW != 'catalog' && WHERE_WE_NOW != 'search'){?>
 	<section class="banner-features">

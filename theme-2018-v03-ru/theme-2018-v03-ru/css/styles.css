@@ -15,7 +15,6 @@
 .pager {
     text-align: center
 }
-
 .btn,
 .btn2,
 .btn3,
@@ -51,6 +50,10 @@ h3 {
 .privacy a,
 p a:hover {
     text-decoration: underline
+}
+.price_tag>.old-price {
+    text-decoration: line-through!important;
+    color: red!important;
 }
 
 #content .tab,
@@ -3161,4 +3164,11 @@ margin-top:-25px;
     font-size: 15px;
     text-decoration-style: solid;
     text-decoration-line: underline;
+}
+.price_tag>.old-price {
+    text-decoration: line-through!important;
+    color: red!important;
+}
+.discount {
+    margin-top: 0px!important;
 }

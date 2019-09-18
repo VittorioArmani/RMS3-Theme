@@ -42,6 +42,10 @@ h2,
 h3 {
     color: #2B2B2B
 }
+.price_tag>.old-price {
+    text-decoration: line-through!important;
+    color: red!important;
+}
 .list a:hover,
 .privacy a,
 p a:hover {
